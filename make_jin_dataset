@@ -1,0 +1,36 @@
+import cv2
+from facenet_pytorch import MTCNN
+import numpy as np
+
+
+mtcnn = MTCNN(device='cuda')
+
+# Load the video
+v_cap = cv2.VideoCapture('C:/Users/ddcfd/Desktop/vdeo/jin.mp4')
+
+# get the frame count
+
+v_len = int(v_cap.get(cv2.CAP_PROP_FRAME_COUNT))
+
+frames = []
+
+print(v_len)
+
+for _ in range(v_len):
+
+    #Load the frame
+    success, frame = v_cap.read()
+
+    if not success:
+        continue
+    frame = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
+    frames.append(frame)
+
+save_path = [f'image_{i}.jpg' for i in range(len(frames))]
+
+for frame, path in zip(frames, save_path):
+    mtcnn(frame,save_path=path)
+
+
+
+
