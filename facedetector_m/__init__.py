@@ -1,1 +1,1 @@
-from .FaceDetector2 import *
+from .detector import *
