@@ -2,7 +2,7 @@ import cv2
 import matplotlib.pyplot as plt
 
 img_path = "IU.jpg"
-img = cv2.imread("D:\MyDataset\IU.jpg")
+img = cv2.imread(img_path)
 
 # cv2.rectangle(img,(188,132),(471,522),(0,255,0),3)
 cv2.rectangle(img,(471,522),(188,132),(0,255,0),3)
