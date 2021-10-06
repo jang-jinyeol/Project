@@ -6,6 +6,13 @@ from PIL import Image
 from torchvision import transforms
 
 
+"""
+학교컴에선 cv2.rectangle, cv2.putText에서 error가 생겨서
+int형으로 캐스팅 함.
+
+"""
+
+
 class FaceDetectorClass(object):
     """
     Face detector class
@@ -22,22 +29,23 @@ class FaceDetectorClass(object):
         for box, prob, ld in zip(boxes, probs, landmarks):
             # Draw rectangle on frame
             cv2.rectangle(frame,
-                          (box[0], box[1]),
-                          (box[2], box[3]),
+                          (int(box[0]), int(box[1])),
+                          (int(box[2]), int(box[3])),
                           (0, 0, 255),
                           thickness=2)
 
             # Show probability
-            # cv2.putText(frame, str(
-            #        prob), (box[2], box[3]), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 0, 255), 2, cv2.LINE_AA)
+            cv2.putText(frame, str(
+                   prob), (int(box[2]), int(box[3])), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 0, 255), 2, cv2.LINE_AA)
 
             # Draw landmarks
+            '''
             cv2.circle(frame, tuple(ld[0]), 5, (0, 0, 255), -1)
             cv2.circle(frame, tuple(ld[1]), 5, (0, 0, 255), -1)
             cv2.circle(frame, tuple(ld[2]), 5, (0, 0, 255), -1)
             cv2.circle(frame, tuple(ld[3]), 5, (0, 0, 255), -1)
             cv2.circle(frame, tuple(ld[4]), 5, (0, 0, 255), -1)
-
+            '''
         return frame
 
     def _detect_ROIs(self, boxes):
@@ -98,15 +106,21 @@ class FaceDetectorClass(object):
         """
             Run the FaceDetector and draw landmarks and boxes around detected faces
         """
-        cap = cv2.VideoCapture('http://192.168.0.75:4747/mjpegfeed?640x480')
+        # cap = cv2.VideoCapture('192.168.0.5:4747/mjpegfeed?640x480')
+        cap = cv2.VideoCapture(0)
+        print("run에 들어옴")
+
 
         while True:
             ret, frame = cap.read()
             try:
+
                 # detect face box, probability and landmarks
                 boxes, probs, landmarks = self.mtcnn.detect(frame, landmarks=True)
+
                 # draw on frame
                 self._draw(frame, boxes, probs, landmarks)
+
 
                 # Blur face if Rosa
                 if blur_setting == True:
