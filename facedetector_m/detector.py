@@ -10,6 +10,17 @@ from torchvision import transforms
 학교컴에선 cv2.rectangle, cv2.putText에서 error가 생겨서
 int형으로 캐스팅 함.
 
+droid캠으로 (학교에선 error가 발생하는 원인 파악 X)
+
+-----
+Traceback (most recent call last):
+  File "C:/Users/ailab3/PycharmProjects/pythonProject/face_detection.py", line 30, in <module>
+    fcd.run(blur_setting=True)
+  File "C:\Users\ailab3\PycharmProjects\pythonProject\facedetector_m\detector.py", line 143, in run
+    cv2.imshow('Face Detection', frame)
+cv2.error: OpenCV(4.5.3) C:\Users\runneradmin\AppData\Local\Temp\pip-req-build-c2l3r8zm\opencv\modules\imgproc\src\color.cpp:182: error: (-215:Assertion failed) !_src.empty() in function 'cv::cvtColor'
+-----
+
 """
 
 
