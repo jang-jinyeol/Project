@@ -20,9 +20,10 @@ class FaceDetector(object):
         try:
             for box, prob, ld in zip(boxes, probs, landmarks):
                 # Draw rectangle on frame
+                # 학교컴에선 int형으로 캐스팅 해줘야 정상작동 함
                 cv2.rectangle(frame,
-                              (box[0], box[1]),
-                              (box[2], box[3]),
+                              (int(box[0]), int(box[1])),
+                              (int(box[2]), int(box[3])),
                               (0, 0, 255),
                               thickness=2)
 
