@@ -143,3 +143,5 @@ class FaceDetectorClass(object):
         cv2.imshow(img_path, test_resize)
         cv2.waitKey()
         cv2.destroyAllWindows()
+        
+        #.
