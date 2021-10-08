@@ -10,3 +10,5 @@ youtube-dl https://youtu.be/kj1c17m5OtY
 
 # 조금 더 자세한 설명은 아래 링크
 # https://smilehugo.tistory.com/entry/how-to-download-youtube-videos-using-youtube-dl
+
+# 파이참 터미널이 아닌 conda 터미널에서 받을때 속도가 훨씬 빨랐다.
