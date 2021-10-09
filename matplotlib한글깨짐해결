@@ -1,0 +1,38 @@
+한글 폰트 추가
+ 네이버에서 폰트를 공짜로 뿌리고 있다. 네이버에 들어가서 폰트를 다운로드 받도록 한다. 
+
+ 
+
+hangeul.naver.com/2017/nanum
+
+ 
+[네이버 한글한글 아름답게 : 글꼴모음]
+
+한글의 아름다움, 나눔글꼴로 나눕니다.
+
+hangeul.naver.com
+Window10 기준으로, 경로에 C:\Windows\Fonts 네이버에서 다운 받은 폰트들을 Fonts 파일에 추가합니다. 
+
+ 
+
+import matplotlib
+print(matplotlib.matplotlib_fname())
+윗 경로에 위치한 matplotlibrc 파일이 matplotlib 설정파일이다. 메모장으로 열고 ctrl + f 를 통해 font.family 를 찾는다.
+
+# font.family : sans_serif
+주석 처리된 부분을 자신이 원하는 한글 폰트로 바꾼다(여기서는 NanumGothic으로 사용).
+
+font.family : NamumGothic
+한글 폰트 적용은 완료 되었지만 - (마이너스) 기호는 깨져보인다. 마이너스 기호를 정상적으로 출력하기 위해서는 하나더 고쳐야 한다. 
+
+ctrl + f로 axes.unicode_minus 부분을 찾아 True 부분을 False 로 바꾼다.
+
+#axes.unicode_minus  : True ## use unicode for the minus symbol
+윗 코드 라인을 아래와 같이 바꾼다.
+
+axes.unicode_minus  : False ## use unicode for the minus symbol
+폰트가 제대로 들어가는지 확인하기 위해 아래 코드를 입력하면 
+
+import matplotlib.pyplot as plt
+plt.rcParams["font.family"] = "NamumGothic"
+Font family [fontname] not found 에러가 뜰것이다. 주피터 노트북의 캐시파일이 default 폰트 적용 되어있어 캐시파일을 지우면 된다. 
