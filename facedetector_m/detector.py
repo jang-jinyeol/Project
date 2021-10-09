@@ -117,7 +117,7 @@ class FaceDetectorClass(object):
         """
             Run the FaceDetector and draw landmarks and boxes around detected faces
         """
-        # cap = cv2.VideoCapture('192.168.0.5:4747/mjpegfeed?640x480')
+        # cap = cv2.VideoCapture('http://192.168.0.5:4747/mjpegfeed?640x480')
         cap = cv2.VideoCapture(0)
         print("run에 들어옴")
 
