@@ -17,7 +17,7 @@ im2 = Image.open(test)
 im2.show()
 
 # opencv로 열기
-
+# opencv는 한글경로이면 안열림
 cv2.imshow(img_path,img)
 cv2.waitKey()
 cv2.destroyAllWindows()
