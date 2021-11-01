@@ -74,3 +74,4 @@ class FaceDetector(object):
 mtcnn = MTCNN(select_largest=False, device='cuda')
 fcd = FaceDetector(mtcnn)
 fcd.run()
+#.
