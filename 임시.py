@@ -43,7 +43,7 @@ class FaceClassifier():
             rgb = small_frame[:, :, ::-1]
 
         boxes = face_recognition.face_locations(rgb)
-        print("sdsdsdsssssssssssssssssssssss")
+        print("sdsdsdssssssssssssssssssssss")
 
         #elapsed_time = time.time() - start_time
         #print("locate_faces takes %.3f seconds" % elapsed_time)
