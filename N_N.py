@@ -306,4 +306,3 @@ if __name__ == '__main__':
 
     # pdb.save_db(result_dir)
     # pdb.print_persons()
-    #.....
