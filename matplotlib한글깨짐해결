@@ -36,3 +36,4 @@ axes.unicode_minus  : False ## use unicode for the minus symbol
 import matplotlib.pyplot as plt
 plt.rcParams["font.family"] = "NamumGothic"
 Font family [fontname] not found 에러가 뜰것이다. 주피터 노트북의 캐시파일이 default 폰트 적용 되어있어 캐시파일을 지우면 된다. 
+#.
